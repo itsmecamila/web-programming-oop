@@ -38,11 +38,6 @@
     }
 
     public function Multiplicar($n) : void{
-        if($this->res == 0){
-            $this->res = $n;
-            return;
-        }
-
         $this->mem = $this->res;
         $this->res = $this->res * $n;
     }
