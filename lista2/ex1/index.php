@@ -2,17 +2,17 @@
 
 require './processamento.php';
 
-$retangulo2 = new Retangulo(12,10);
-$areaRet2 = $retangulo2->calcularArea();
-$perimetroRet2 = $retangulo2->calcularPerimetro();
-$ehQuadradoRet2 = $retangulo2->ehQuadrado();
-
 
 $retangulo1 = new Retangulo();
 $areaRet1 = $retangulo1->calcularArea();
 $perimetroRet1 = $retangulo1->calcularPerimetro();
 $ehQuadradoRet1 = $retangulo1->ehQuadrado();
 
+
+$retangulo2 = new Retangulo(12,10);
+$areaRet2 = $retangulo2->calcularArea();
+$perimetroRet2 = $retangulo2->calcularPerimetro();
+$ehQuadradoRet2 = $retangulo2->ehQuadrado();
 
 if($ehQuadradoRet1 == true){
     echo 'Retângulo 1 <br>';
