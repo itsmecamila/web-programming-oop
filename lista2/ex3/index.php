@@ -14,9 +14,8 @@ if($abasteceu == true){
 
 $andou = $carro->Andar(80);
 if($andou == true){
-
     echo 'Carro andou: ' .$_SESSION['distancia']. ' km<br>';
 }
 
-echo 'Combustível final: '. $carro->GetCombustivel() . '<br>';
+echo 'Combustível final: '. $carro->GetCombustivel() . ' litros <br>';
 ?>
