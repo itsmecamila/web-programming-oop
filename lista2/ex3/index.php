@@ -3,7 +3,7 @@
 session_start();
 require "./processamento.php";
 
-$carro = new Carro();
+$carro = new Carro(1);
 
 echo 'Combustível inicial: ' . $carro->GetCombustivel(). '<br>';
 

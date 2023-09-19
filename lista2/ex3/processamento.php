@@ -7,9 +7,9 @@ class Carro{
     private $combustivel;
     private $consumo;
 
-    public function __construct(){
+    public function __construct($consumo){
         $this->combustivel = 0;
-        $this->consumo = 1;
+        $this->consumo = $consumo;
     }
 
     public function Andar($distancia) : bool{
