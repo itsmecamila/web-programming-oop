@@ -4,7 +4,6 @@ class Data{
     private $dia;
     private $mes;
     private $ano;
-
     
     public function __construct($dia = 0, $mes = 0, $ano = 0 ){
         $this->dia = $dia;
@@ -58,9 +57,8 @@ class Data{
     }
 }
 
-
     public function ehBissexto($ano) : bool {
-            return ($ano % 4 == 0 || $ano % 400 == 0) && $ano % 100 != 0; 
+        return $ano % 4 == 0 && ($ano % 100 != 0 || $ano % 400 == 0);
     }
 
     public function AvancarDia() : void {
@@ -81,8 +79,6 @@ class Data{
             $this->ano  += 1;
         }
 }
-
-
 
     public function VoltarDia() :  void{
         $MesAntecessor = ($this->mes == 1) ? 12 : ($this->mes - 1);
@@ -106,14 +102,14 @@ class Data{
             $numeroDoDiaLimiteEmRelacaoAoTotalDeDiasDoAno = 0;
             $numeroDoDiaAtualEmRelacaoAoTotalDeDiasDoAno = 0; 
             
-            for($i = 1; $i < $this->mes - 1; $i++){
+            for($i = 1; $i <= $this->mes - 1; $i++){
                 $numeroDoDiaAtualEmRelacaoAoTotalDeDiasDoAno += $this->QuantosDiasTemEsseMes($i,$this->ano);
             }
 
             $numeroDoDiaAtualEmRelacaoAoTotalDeDiasDoAno += $this->dia;
 
-            for($i = 1;$i < $data->GetMes() - 1; $i++){
-                $numeroDoDiaLimiteEmRelacaoAoTotalDeDiasDoAno += $this->QuantosDiasTemEsseMes($i,$data->GetAno);
+            for($i = 1;$i <= $data->GetMes() - 1; $i++){
+                $numeroDoDiaLimiteEmRelacaoAoTotalDeDiasDoAno += $this->QuantosDiasTemEsseMes($i,$data->GetAno());
                 
             }
 
@@ -132,6 +128,7 @@ class Data{
                 else{
                     $dias = 365 - $numeroDoDiaAtualEmRelacaoAoTotalDeDiasDoAno;
                 }
+
                 if(abs($data->GetAno() - $this->ano) >= 2){
                     if($this->ano > $data->GetAno()){
                         for ($i = $data->GetAno() + 1; $i < $this->ano; $i ++){
@@ -144,7 +141,7 @@ class Data{
                         }
                     }
                     else if($data->GetAno() > $this->ano){
-                        for ($i=$this->ano + 1; $i < $data->GetAno(); $i ++){
+                        for ($i = $this->ano + 1; $i < $data->GetAno(); $i ++){
                             if($this->ehBissexto($i)){
                                 $dias += 366;
                             }
@@ -157,7 +154,6 @@ class Data{
             }
 
             return $dias + $numeroDoDiaLimiteEmRelacaoAoTotalDeDiasDoAno;
-
         }
 
         public function CompararDatas($data) :int{
@@ -196,7 +192,6 @@ class Data{
                 return 28;
             }
         }
-        return false;
     }
 }  
 ?>
